@@ -11,7 +11,7 @@ const Time = ({ time }) => {
     );
 };
 Time.propTypes = {
-    time: PropType.string.isRequired;
+    time: PropTypes.string.isRequired
 };
 
-export default time;
+export default Time;
