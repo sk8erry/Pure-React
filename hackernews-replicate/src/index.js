@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import Time from './time';
 import PropTypes from 'prop-types';
+import logo from './logo.gif'
+import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 
 const testPosts = [
@@ -34,6 +35,44 @@ const testPosts = [
         commentCount: 6
     }
 ];
+
+const Header = () => {
+    return(
+        <table className="header">
+            <tbody>
+                <tr>
+                    <td rowSpan={2} className="logo-image">
+                        <a href="https://new.ycombinator.com">
+                            <img className="logo-image"
+                                 src={logo}
+                                 alt="HackerNews Logo"/>
+                        </a>
+                    </td>
+                    <td>
+                        <b>
+                            Hacker News
+                        </b>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>newest</span>
+                        <span> | </span>
+                        <span>comments</span>
+                        <span> | </span>
+                        <span> show </span>
+                        <span> | </span>
+                        <span> ask </span>
+                        <span> | </span>
+                        <span> jobs </span>
+                        <span> | </span>
+                        <span> submit </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    )
+};
 
 const PostList = ({ posts }) => {
     return(
@@ -68,13 +107,15 @@ const PostInfo = ({ post }) => {
                 <td>{post.title}</td>
             </tr>
             <tr className="post-subtext">
-                <span className="points">{post.points + ' points'}</span>
-                <span className="author">{' by ' + post.author + ' '}</span>
-                <span className="time"><Time time={post.timeStamp} /></span>
-                <span className="separator"> | </span>
-                <span className="hide-button">hide</span>
-                <span className="separator"> | </span>
-                <span className="comment-count">{post.commentCount + 'comments'}</span>
+                <td>
+                    <span className="points">{post.points + ' points'}</span>
+                    <span className="author">{' by ' + post.author + ' '}</span>
+                    <span className="time"><Time time={post.timeStamp} /></span>
+                    <span className="separator"> | </span>
+                    <span className="hide-button">hide</span>
+                    <span className="separator"> | </span>
+                    <span className="comment-count">{post.commentCount + ' comments'}</span>
+                </td>
             </tr>
         </tbody>
     )
@@ -83,5 +124,11 @@ PostInfo.propTypes = {
     post: PropTypes.object.isRequired
 };
 
-ReactDOM.render(<PostList posts={testPosts} />, document.getElementById('root'));
+ReactDOM.render(
+    <div>
+        <Header/>
+        <PostList posts={testPosts} />
+    </div>,
+    document.getElementById('root')
+);
 registerServiceWorker();
