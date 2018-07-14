@@ -3,3 +3,23 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.header {
+  background-color: #ff6600;
+}
+
+.log-in {
+  text-align: right;
+  padding-right: 4px;
+}
+
+.votearrow {
+  width:      15px;
+  height:     18px;
+  border-top: 0px;
+  margin: 2px;
+}
+
+.posts {
+  background-color: #f6f6ef;
+}

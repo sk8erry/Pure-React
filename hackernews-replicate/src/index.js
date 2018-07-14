@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Time from './time';
 import PropTypes from 'prop-types';
 import logo from './logo.gif'
+import votearrow from './WX20180715-011210@2x.png';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 
@@ -33,18 +34,38 @@ const testPosts = [
         timeStamp: '2018-7-12 20:05:00',
         author: 'zianwar',
         commentCount: 6
+    },
+    {
+        id: 4,
+        title: 'I got arrested in Kazakhstan and represented myself in court',
+        source: 'medium.com',
+        points: 72,
+        timeStamp: '2018-7-12 20:46:00',
+        author: 'drpp',
+        commentCount: 79
+    },
+    {
+        id: 5,
+        title: 'Sculpture of Housing Prices Ripping San Fransico Apart',
+        source: 'dougmccune.com',
+        points: 254,
+        timeStamp: '2018-7-12 19:45:00',
+        author: 'dougmccune',
+        commentCount: 149
     }
 ];
 
 const Header = () => {
     return(
-        <table className="header">
+        <table className="header" width="100%">
             <tbody>
                 <tr>
-                    <td rowSpan={2} className="logo-image">
+                    <td className="logo-image">
                         <a href="https://new.ycombinator.com">
                             <img className="logo-image"
                                  src={logo}
+                                 width={18}
+                                 height={18}
                                  alt="HackerNews Logo"/>
                         </a>
                     </td>
@@ -53,8 +74,6 @@ const Header = () => {
                             Hacker News
                         </b>
                     </td>
-                </tr>
-                <tr>
                     <td>
                         <span>newest</span>
                         <span> | </span>
@@ -66,9 +85,13 @@ const Header = () => {
                         <span> | </span>
                         <span> jobs </span>
                         <span> | </span>
-                        <span> submit </span>
+                        <span> submit  </span>
+                    </td>
+                    <td className="log-in">
+                        <span>log in</span>
                     </td>
                 </tr>
+               
             </tbody>
         </table>
     )
@@ -92,7 +115,7 @@ PostList.propTypes = {
 const PostListItem = ({ post }) => (
     <tr>
         <td>
-            <PostInfo className="post-list-iten" post={post}/>
+            <PostInfo className="post-info" post={post}/>
         </td>
     </tr>
 );
@@ -102,9 +125,15 @@ PostListItem.propTypes = {
 
 const PostInfo = ({ post }) => {
     return(
-        <tbody className="post">
+        <tbody>
             <tr className="post-title">
-                <td>{post.title}</td>
+                <td>
+                    <span className="post-number">{post.id + '.'}</span>
+                    <span>
+                        <img className="votearrow" src={votearrow} alt="votearrow"/>
+                    </span>
+                    <span>{post.title}</span>
+                </td>
             </tr>
             <tr className="post-subtext">
                 <td>
@@ -127,7 +156,9 @@ PostInfo.propTypes = {
 ReactDOM.render(
     <div>
         <Header/>
-        <PostList posts={testPosts} />
+        <div className="posts">
+            <PostList posts={testPosts} />
+        </div>
     </div>,
     document.getElementById('root')
 );
