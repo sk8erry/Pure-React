@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Time from './time';
 import PropTypes from 'prop-types';
 import logo from './logo.gif'
-import votearrow from './WX20180715-011210@2x.png';
+import votearrow from './votearrow.png';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 
@@ -52,6 +52,33 @@ const testPosts = [
         timeStamp: '2018-7-12 19:45:00',
         author: 'dougmccune',
         commentCount: 149
+    },
+    {
+        id: 6,
+        title: 'Practical Guide to Bare Metal C++',
+        source: 'gitbooks.io',
+        points: 175,
+        timeStamp: '2018-7-12 19:12:00',
+        author: 'adamnemecek',
+        commentCount: 31
+    },
+    {
+        id: 7,
+        title: 'Superformula',
+        source: 'wikipedia.com',
+        points: 77,
+        timeStamp: '2018-7-12 19:04:00',
+        author: 'GuiA',
+        commentCount: 17
+    },
+    {
+        id: 8,
+        title: 'Police asked 3D printing lab to recreate a dead man\'s fingers to unlock phone',
+        source: 'fusion.net',
+        points: 109,
+        timeStamp: '2018-7-11 18:46:00',
+        author: 'theandrewbailey',
+        commentCount: 57
     }
 ];
 
@@ -69,12 +96,10 @@ const Header = () => {
                                  alt="HackerNews Logo"/>
                         </a>
                     </td>
-                    <td>
-                        <b>
-                            Hacker News
-                        </b>
-                    </td>
-                    <td>
+                    <td className="header-links">
+                        <span className="logo-text">
+                            <b>Hacker News</b>
+                        </span>
                         <span>newest</span>
                         <span> | </span>
                         <span>comments</span>
@@ -129,13 +154,19 @@ const PostInfo = ({ post }) => {
             <tr className="post-title">
                 <td>
                     <span className="post-number">{post.id + '.'}</span>
+                </td>
+                <td>
                     <span>
                         <img className="votearrow" src={votearrow} alt="votearrow"/>
                     </span>
+                </td>
+                <td>
                     <span>{post.title}</span>
+                    <span className="source">{' (' + post.source + ')'}</span>
                 </td>
             </tr>
             <tr className="post-subtext">
+                <td colSpan={2}></td>
                 <td>
                     <span className="points">{post.points + ' points'}</span>
                     <span className="author">{' by ' + post.author + ' '}</span>
@@ -154,12 +185,14 @@ PostInfo.propTypes = {
 };
 
 ReactDOM.render(
-    <div>
-        <Header/>
-        <div className="posts">
-            <PostList posts={testPosts} />
+    <center>
+        <div className="main">
+            <Header/>
+            <div className="posts">
+                <PostList posts={testPosts} />
+            </div>
         </div>
-    </div>,
+    </center>,
     document.getElementById('root')
 );
 registerServiceWorker();

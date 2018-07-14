@@ -4,22 +4,60 @@ body {
   font-family: sans-serif;
 }
 
+.main {
+  width: 70%;
+  align: center;
+}
+
 .header {
   background-color: #ff6600;
 }
 
+.header-links {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 9pt;
+}
+
 .log-in {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 10pt;
   text-align: right;
   padding-right: 4px;
 }
 
 .votearrow {
-  width:      15px;
-  height:     18px;
+  width:      12px;
+  height:     14px;
   border-top: 0px;
-  margin: 2px;
 }
 
 .posts {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 10pt;
   background-color: #f6f6ef;
+  text-align: left;
+}
+
+.post-number {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 10pt;
+  color: #828282;
+}
+
+.source {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 9pt;
+  color: #828282;
+}
+
+.post-subtext {
+  font-family: Verdana, Geneva, sans-serif;
+  color: #828282;
+  font-size: 8pt;
+}
+
+.logo-text {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 10pt;
+  padding-right: 15px;
 }
