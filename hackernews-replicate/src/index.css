@@ -61,3 +61,14 @@ body {
   font-size: 10pt;
   padding-right: 15px;
 }
+
+.footer {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 9pt;
+  background-color: #f6f6ef;
+  text-align: center;
+}
+
+.footer-links {
+  padding-top: 10px;
+}

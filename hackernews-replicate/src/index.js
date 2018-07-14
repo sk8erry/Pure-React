@@ -184,6 +184,41 @@ PostInfo.propTypes = {
     post: PropTypes.object.isRequired
 };
 
+const Footer = () => {
+    return(
+        <table className="footer" width="100%" cellSpacing={0} cellPadding={1}>
+            <tbody>
+                <tr>
+                    <td bgcolor="#ff6600"></td>
+                </tr>
+                <tr>
+                    <td className="footer-links">
+                        <span>Guidelines</span>
+                        <span> | </span>
+                        <span>FAQ</span>
+                        <span> | </span>
+                        <span>Support</span>
+                        <span> | </span>
+                        <span>API</span>
+                        <span> | </span>
+                        <span>Security</span>
+                        <span> | </span>
+                        <span>Lists</span>
+                        <span> | </span>
+                        <span>Bookmarklet</span>
+                        <span> | </span>
+                        <span>Legal</span>
+                        <span> | </span>
+                        <span>Apply to YC</span>
+                        <span> | </span>
+                        <span>Contact</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    )
+};
+
 ReactDOM.render(
     <center>
         <div className="main">
@@ -191,6 +226,7 @@ ReactDOM.render(
             <div className="posts">
                 <PostList posts={testPosts} />
             </div>
+            <Footer/>
         </div>
     </center>,
     document.getElementById('root')
