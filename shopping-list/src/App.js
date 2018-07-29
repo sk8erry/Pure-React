@@ -2,6 +2,7 @@ import React from 'react';
 import Nav from './Nav';
 import './App.css';
 import ItemPage from './ItemPage';
+import CartPage from './CartPage';
 import {items} from './static-data';
 
 class App extends React.Component {
@@ -22,12 +23,49 @@ class App extends React.Component {
 		});
 	}
 
+	handleRemoveOne = (item) => {
+    let index = this.state.cart.indexOf(item.id);
+    this.setState({
+      cart: [
+        ...this.state.cart.slice(0, index),
+        ...this.state.cart.slice(index + 1)
+      ]
+    });
+  }
+
 	renderContent() {
     switch(this.state.activeTab) {
       default:
       case 0: return <ItemPage items={items} onAddToCart={this.handleAddToCart}/>;
-      case 1: return <span>Cart</span>;
+      case 1: return this.renderCart();
     }
+	}
+
+	renderCart() {
+    // Count how many of each item is in the cart
+    let itemCounts = this.state.cart.reduce((itemCounts, itemId) => {
+      itemCounts[itemId] = itemCounts[itemId] || 0;
+      itemCounts[itemId]++;
+      return itemCounts;
+    }, {});
+
+    // Create an array of items
+    let cartItems = Object.keys(itemCounts).map(itemId => {
+      // Find the item by its id
+      var item = items.find(item =>
+        item.id === parseInt(itemId, 10)
+      );
+
+      // Create a new "item" and add the 'count' property
+      return {
+        ...item,
+        count: itemCounts[itemId]
+      }
+    });
+
+    return (
+      <CartPage items={cartItems} onAddOne={this.handleAddToCart} onRemoveOne={this.handleRemoveOne}/>
+    );
   }
 
 	render() {

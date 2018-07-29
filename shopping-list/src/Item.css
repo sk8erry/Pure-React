@@ -47,3 +47,8 @@
 	flex-direction: column;
 	justify-content: space-between;
 }
+
+img {
+	width: auto;
+	height: 100%;
+}
