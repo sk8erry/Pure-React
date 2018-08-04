@@ -21,3 +21,7 @@
 .CartItem-removeOne {
 	border-right: none;
 }
+
+.total-price {
+	text-align: right
+}

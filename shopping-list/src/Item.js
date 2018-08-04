@@ -9,7 +9,7 @@ class Item extends React.Component {
       <div className="Item">
         <div className="Item-left">
           <div className="Item-image" >
-            <img src={require(`${img}`)} />            
+            <img src={require(`${img}`)} alt={this.props.item.name}/>            
           </div>
           <div className="Item-title">{this.props.item.name}</div>
           <div className="Item-description">{this.props.item.description}</div>

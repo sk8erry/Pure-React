@@ -33,6 +33,10 @@ class App extends React.Component {
     });
   }
 
+  getSubtotal = () => {
+    return this.state.cart[0]
+  } 
+
 	renderContent() {
     switch(this.state.activeTab) {
       default:
@@ -64,7 +68,8 @@ class App extends React.Component {
     });
 
     return (
-      <CartPage items={cartItems} onAddOne={this.handleAddToCart} onRemoveOne={this.handleRemoveOne}/>
+      <CartPage items={cartItems} onAddOne={this.handleAddToCart} onRemoveOne={this.handleRemoveOne} 
+       getSubtotal={this.getSubtotal}/>
     );
   }
 
