@@ -34,7 +34,12 @@ class App extends React.Component {
   }
 
   getSubtotal = () => {
-    return this.state.cart[0]
+    const count = this.state.cart.length;
+    var sum = 0, i = 0;
+    for(; i < count; i++) {
+      sum += items[this.state.cart[i]].price;
+    }
+    return sum;
   } 
 
 	renderContent() {

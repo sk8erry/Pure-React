@@ -24,7 +24,7 @@ function CartPage({ items, onAddOne, onRemoveOne, getSubtotal }) {
         )}
       </ul>
       <div className="total-price">
-        Subtotal: {getSubtotal()}
+        Subtotal: ${getSubtotal()}
       </div>
     </div>
   );
