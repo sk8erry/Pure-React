@@ -40,7 +40,11 @@ class App extends React.Component {
       sum += items[this.state.cart[i]].price;
     }
     return sum;
-  } 
+  }
+
+  getItemsCount = () => {
+    return this.state.cart.length
+  }
 
 	renderContent() {
     switch(this.state.activeTab) {
@@ -82,7 +86,8 @@ class App extends React.Component {
 		let {activeTab} = this.state;
 		return(
 			<div className="App">
-				<Nav activeTab={activeTab} onTabChange={this.handleTabChange}/>
+        <Nav activeTab={activeTab} onTabChange={this.handleTabChange} getSubtotal={this.getSubtotal} 
+        getItemsCount={this.getItemsCount}/>
 				<main className="App-content">
 					{this.renderContent()}
 				</main>
